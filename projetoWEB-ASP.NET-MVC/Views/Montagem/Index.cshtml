@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Projeto WEB</title>
+    <meta charset="utf-8">
+    <link href="~/Content/styleMontagem.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+
+    <header class="selector" id="cabeçalho">
+
+        <div class="logo-div">
+            <a href="/LoginCadastro/Index">
+                <img src="~/Images/facens.png" height="150" alt="logoFacens">
+            </a>
+        </div>
+
+        <div class="container">
+            <nav class="menu">
+                <li>
+                    <a href="/Escala/Index">Escala de trabalho</a>
+                </li>
+                <li>
+                    <a href="/Montagem/Index">Montagem da escala de trabalho</a>
+                </li>
+                <li>
+                    <a href="/Colaborador/Index">Gerenciamento de colaboradores</a>
+                </li>
+            </nav>
+        </div>
+
+        <form method="post" action="/LoginCadastro/Sair">
+            <div class="sairButton">
+                <input type="submit" value="Sair">
+            </div>
+            @{
+                var msgVisitante = "Olá visitante!";
+                var usuarioLogado = (ProjetoWEB.Models.Colaborador)HttpContext.Current.Session["Usuario"];
+                if (usuarioLogado == null)
+                {
+                    <label class="msgUsuario" style="color:black">@msgVisitante</label>
+                }
+                else
+                {
+                    <label class="msgUsuario" style="color:black">@usuarioLogado.Nome</label>
+                }
+            }
+        </form>
+
+    </header>
+
+    <div class="container-span">
+
+        <div>
+            <p class="textoCentro central">
+                <span>Monte a escala de trabalho</span>
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,150 @@
+﻿@model ProjetoWEB.Models.Colaborador
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/styleGerenciamento.css" rel="stylesheet" type="text/css" />
+    <title>Details</title>
+</head>
+<body>
+
+    <header class="selector" id="cabeçalho">
+
+        <div class="logo-div">
+            <a href="/LoginCadastro/Index">
+                <img src="~/Images/facens.png" height="150" alt="logoFacens">
+            </a>
+        </div>
+
+        <div class="container">
+            <nav class="menu">
+                <li>
+                    <a href="/Escala/Index">Escala de trabalho</a>
+                </li>
+                <li>
+                    <a href="/Montagem/Index">Montagem da escala de trabalho</a>
+                </li>
+                <li>
+                    <a href="/Colaborador/Index">Gerenciamento de colaboradores</a>
+                </li>
+            </nav>
+        </div>
+
+        <form method="post" action="/LoginCadastro/Sair">
+            <div class="sairButton">
+                <input class="inputLogout" type="submit" value="Sair">
+            </div>
+            @{
+                var msgVisitante = "Olá visitante!";
+                var usuarioLogado = (ProjetoWEB.Models.Colaborador)HttpContext.Current.Session["Usuario"];
+                if (usuarioLogado == null)
+                {
+                    <label class="msgUsuario" style="color:black">@msgVisitante</label>
+                }
+                else
+                {
+                    <label class="msgUsuario" style="color:black">@usuarioLogado.Nome</label>
+                }
+            }
+        </form>
+
+    </header>
+
+    <div class="container-span">
+        <div>
+            <p class="textoCentro central">
+                <span>Veja os detalhes do colaborador</span>
+            </p>
+        </div>
+    </div>
+    <div>
+        <h4>Colaborador</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CPF)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CPF)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Senha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Senha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Oficio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Oficio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataNascimento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sexo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Disponibilidade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Disponibilidade)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idColaborador }) |
+        @Html.ActionLink("Voltar à lista", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Projeto WEB</title>
+    <meta charset="utf-8">
+    <link href="~/Content/styleCadastro.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <header class="selector" id="cabeçalho">
+    </header>
+
+    <div class="logo-div">
+        <a href="/LoginCadastro/Index">
+            <img src="~/Images/facens.png" height="150" alt="logoFacens">
+        </a>
+    </div>
+
+    <div class="cadastroForm-container">
+        <h2 class="cadastroCabeçalho">
+            <span>Cadastre-se</span>
+        </h2>
+
+        <div>
+            <p class="textoForm central">
+                <span>Preencha o formulário abaixo</span>
+            </p>
+        </div>
+
+        <form class="cadastroForm" method="post" action="/LoginCadastro/Cadastrar">
+            <div class="inputForm" id="email">
+                <label class="inputForm-label" for="Email">E-mail</label>
+                <input class="form-control" type="email" autocomplete="on" placeholder="Informe seu e-mail" name="Email" id="Email" required>
+            </div>
+            <div class="inputForm" id="senha">
+                <label class="inputForm-label" for="Senha">Senha</label>
+                <input class="form-control" type="password" placeholder="Informe sua senha" name="Senha" id="Senha" required>
+                <input class="password-checkbox" type="checkbox" onclick="showPassword()">Mostrar
+            </div>
+            <div class="inputForm" id="nome">
+                <label class="inputForm-label" for="Nome">Seu nome</label>
+                <input class="form-control" type="text" autocomplete="on" name="Nome" id="Nome" placeholder="Informe seu nome completo" required>
+            </div>
+            <div class="inputForm" id="dataNascimento">
+                <label class="inputForm-label" for="DataNascimento">Data de nascimento</label>
+                <input class="form-control" type="text" autocomplete="on" name="DataNascimento" id="DataNascimento" placeholder="Informe sua data de nascimento">
+            </div>
+            <div class="inputForm" id="cpf">
+                <label class="inputForm-label" for="CPF">CPF</label>
+                <input class="form-control" type="text" autocomplete="on" name="CPF" id="CPF" placeholder="Informe seu CPF" required>
+            </div>
+            <div class="inputForm" id="sexo">
+                <label class="inputForm-label" for="Sexo">Sexo</label>
+                <div class="radio">
+                    <input class="inputForm-radio" type="radio" autocomplete="on" id="Masculino" name="Sexo" value="M" checked>
+                    <label for="Masculino">Masculino</label>
+                </div>
+                <div class="radio">
+                    <input class="inputForm-radio" type="radio" autocomplete="on" id="Feminino" name="Sexo" value="F">
+                    <label for="Feminino">Feminino</label>
+                </div>
+            </div>
+            <div class="inputForm" id="telefone">
+                <label class="inputForm-label" for="Telefone">Telefone</label>
+                <input class="form-control" type="tel" autocomplete="on" name="Telefone" id="Telefone" placeholder="Informe seu telefone" required>
+            </div>
+            <div class="inputForm" id="oficio">
+                <label class="inputForm-label" for="Oficio">Ofício</label>
+                <div class="radio">
+                    <input class="inputForm-radio" type="radio" autocomplete="on" id="Portaria" name="Oficio" value="portaria" checked>
+                    <label for="Portaria">Portaria</label>
+                </div>
+                <div class="radio">
+                    <input class="inputForm-radio" type="radio" autocomplete="on" id="Vigilancia" name="Oficio" value="vigilancia">
+                    <label for="Vigilancia">Vigilância</label>
+                </div>
+                <div class="radio">
+                    <input class="inputForm-radio" type="radio" autocomplete="on" id="ADM" name="Oficio" value="administraçao">
+                    <label for="ADM">Administração</label>
+                </div>
+            </div>
+            <button type="submit" id="Cadastrar" class="btn btn-primary cadastroForm-submit" onclick="msg()">Cadastrar</button>
+
+            @{
+                if (IsPost)
+                {
+                    if (@ViewBag.StatusCadastro != String.Empty)
+                    {
+                        @ViewBag.StatusCadastro
+                    }
+                }
+            }
+            <!-- <div id="mensagem">Cadastro realizado com sucesso! Você será redirecionado para a tela de login.</div>
+    <script>
+        function msg() {
+            $("#mensagem").addClass('ver');
+            setTimeout(function() {$("#mensagem").removeClass('ver'); }, 3000);
+        }
+    </script> -->
+            <!-- <script type="text/javascript">
+        document.getElementById("cadastrar").onclick = function () {
+            location.href = "index.html";
+        };
+    </script> -->
+        </form>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script>
+        $('document').ready(function () {
+            $("#DataNascimento").mask("99/99/9999");
+            $("#CPF").mask("999.999.999-99");
+        });
+
+        var SPMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+            spOptions = {
+                onKeyPress: function (val, e, field, options) {
+                    field.mask(SPMaskBehavior.apply({}, arguments), options);
+                }
+            };
+
+        $("#Telefone").mask(SPMaskBehavior, spOptions);
+    </script>
+    <script>
+        function showPassword() {
+            var x = document.getElementById("Senha");
+            if (x.type === "password") {
+                x.type = "text";
+            }
+            else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+
+</body>
+</html>

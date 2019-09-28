@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Projeto WEB</title>
+    <link href="~/Content/styleLogin.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+    <form method="post" action="/LoginCadastro/Login" id="frmLogin" class="login-form">
+
+        <div class="logo">
+            <img src="~/Images/facens.png" height="150" alt="logoFacens">
+        </div>
+        <h1>Login</h1>
+
+        <div class="txtb">
+            <input type="email" id="Email" name="Email" placeholder="E-mail" required>
+        </div>
+
+        <div class="txtb">
+            <input type="password" id="Senha" name="Senha" placeholder="Senha" required>
+        </div>
+
+        <input type="submit" class="logbtn" value="Entrar">
+
+        <div class="loginError">
+            @{
+                if (IsPost)
+                {
+                    if (@ViewBag.Erro != String.Empty)
+                    {
+                        @ViewBag.Erro
+                    }
+                }
+            }
+        </div>
+
+        <div class="bottom-text">
+            <a href="/LoginCadastro/Cadastro">Cadastre-se</a>
+        </div>
+
+    </form>
+
+</body>
+</html>
+

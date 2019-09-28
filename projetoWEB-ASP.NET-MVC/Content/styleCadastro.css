@@ -1,0 +1,298 @@
+.selector {
+    background: -webkit-linear-gradient(left, #105dad, #1f51ff8c 35%, #1f51ff8c 35%, #0229b952);
+    width: 100%;
+    height: 30px;
+    margin: auto;
+    box-shadow: 0 2px 4px rgba(47, 97, 210, 0.65);
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 97%;
+}
+
+.menu {
+    background: none;
+    width: 100%;
+    float: left;
+    position: relative;
+    top: auto;
+    bottom: 45px;
+    left: auto;
+}
+
+li a:hover {
+    color: #277fef;
+  }
+
+.menu li {
+    position: relative;
+    float: left;
+    left: 0;
+    width: auto;
+    padding: 0 10px;
+    padding-left: 35px;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-top: 100px;
+    list-style-type: none
+}
+
+.menu a {
+    padding: 0;
+    display: block;
+    padding-bottom: 20px;
+    transition: color 0.1s;
+    text-decoration: none;
+    padding-top: 30px;
+    padding-left: 60px;
+    font-size: larger;
+    font-family: sans-serif;
+    color: #4c4a4ae8;
+}
+
+.inputForm {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.inputForm-label {
+    display: block;
+    width: 230px;
+    text-align: left;
+    padding-right: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+}
+
+.form-control {
+    width: 400px;
+    border: 1px solid;
+    border-color: #ccc;
+    display: inline-block;
+    height: 22px;
+    padding: 10px;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 5px;
+}
+
+.form-control, .form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+input.inputForm:focus {
+    border-color: #666;
+}
+
+.inputForm-radio {
+    display: inline-block;
+    margin: 6px;
+}
+
+.radio input[type=radio] {
+    position: absolute;
+    height: 1px;
+    left: -99999px;
+    width: 1px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.radio label:before {
+    border: 1px solid #999;
+    content: "";
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 20px;
+    transition: all .2s ease-in-out;
+}
+
+.radio input[type=radio]:checked~label:after {
+    top: 12px;
+}
+
+.radio input[type=radio]:checked~label:after {
+    background: #277fef;
+    content: "";
+    height: 8px;
+    left: 7px;
+    line-height: 1;
+    position: absolute;
+    width: 8px;
+    border-radius: 8px;
+}
+
+.radio label {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 0;
+    position: relative;
+    padding: 5px 10px 5px 30px;
+}
+
+.radio input[type=radio]:checked~label, .radio label:hover {
+    color: #277fef;
+}
+
+.cadastroCabeçalho {
+    margin-top: 5px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 28px;
+    margin-top: 90px;
+    padding: 0 10px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #333;
+}
+
+body {
+    font-family: Arial,Helvetica,Verdana,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    max-width: 100%;
+}
+
+.logoFacens {
+    width: 800px;
+    height: 400px;
+    margin-top: 20px;
+    background: url(images/facens.jpg);
+    background-repeat: no-repeat;
+    position:absolute;
+    z-index:99;
+    display: block;
+    background-size: cover;
+}
+
+.cadastroForm-container {
+    max-width: 740px;
+    margin: 3rem auto 0;
+    padding: 75px;
+}
+
+.textoForm {
+    margin: 2rem 0;
+}
+
+.textoForm.central {
+    text-align: center;
+    background-image: linear-gradient(180deg,transparent 10px,#2378f78c 0,#7bb4fb73 12px,transparent 0);
+    margin: 0;
+}
+
+.textoForm>span {
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 10px;
+    text-transform: none;
+    font-size: 15px;
+}
+
+.cadastroForm {
+    width: 400px;
+    margin: auto;
+    padding:10px;
+}
+
+.cadastroForm-submit {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    color: #fff;
+    background: #255edec4;
+}
+
+.btn-primary:hover {
+    background-color: #255ede99;
+}
+
+.btn {
+    border-width: 0;
+    width: 180px;
+    height: 35px;
+    font-size: 18px;
+    text-align: center;
+    text-transform: inherit;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.3);
+    transition: all .1s ease-in;
+    margin-top: 40px;
+}
+
+select.basic {
+    width: 250px;
+    height: 43px;
+}
+
+.alinharLogo{
+    float: left;
+    padding: 0 10px;
+    padding-top: 63px;
+}
+
+.password-checkbox{
+    margin-top: 20px;
+}
+
+.logo-div {
+    display: flex;
+    height: 0px; /* Or whatever */
+}
+
+.logo-div img {
+    height: 150px;
+    margin: auto;
+}
+
+.logo-div a {
+    margin: auto;
+}
+
+#mensagem {
+    transition: all 0.52s;
+    background: #FFF;
+    border: #777 solid 1px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.52);
+    position: fixed;
+    top: -150px;
+    width: 50%;
+    padding: 25px 0;
+    text-align: center;
+    left: 25%;
+    opacity: 0;
+  }
+  
+  #mensagem.ver {
+    top: 75px;
+    opacity: 1;
+  }

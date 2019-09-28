@@ -1,0 +1,143 @@
+﻿@model IEnumerable<ProjetoWEB.Models.Colaborador>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/styleGerenciamento.css" rel="stylesheet" type="text/css" />
+    <title>Index</title>
+</head>
+<body>
+
+    <header class="selector" id="cabeçalho">
+
+        <div class="logo-div">
+            <a href="/LoginCadastro/Index">
+                <img src="~/Images/facens.png" height="150" alt="logoFacens">
+            </a>
+        </div>
+
+        <div class="container">
+            <nav class="menu">
+                <li>
+                    <a href="/Escala/Index">Escala de trabalho</a>
+                </li>
+                <li>
+                    <a href="/Montagem/Index">Montagem da escala de trabalho</a>
+                </li>
+                <li>
+                    <a href="/Colaborador/Index">Gerenciamento de colaboradores</a>
+                </li>
+            </nav>
+        </div>
+
+        <form method="post" action="/LoginCadastro/Sair">
+            <div class="sairButton">
+                <input class="inputLogout" type="submit" value="Sair">
+            </div>
+            @{
+                var msgVisitante = "Olá visitante!";
+                var usuarioLogado = (ProjetoWEB.Models.Colaborador)HttpContext.Current.Session["Usuario"];
+                if (usuarioLogado == null)
+                {
+                    <label class="msgUsuario" style="color:black">@msgVisitante</label>
+                }
+                else
+                {
+                    <label class="msgUsuario" style="color:black">@usuarioLogado.Nome</label>
+                }
+            }
+        </form>
+
+    </header>
+
+    <div class="container-span">
+        <div>
+            <p class="textoCentro central">
+                <span>Gerencie os colaboradores</span>
+            </p>
+        </div>
+    </div>
+
+    @*<p>
+            @Html.ActionLink("Cadastrar", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oficio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponibilidade)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Senha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oficio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Disponibilidade)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idColaborador }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.idColaborador }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.idColaborador })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
